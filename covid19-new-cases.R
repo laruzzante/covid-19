@@ -24,7 +24,7 @@ compute_r <- function(y, t, x){
   r <- c()
   for(i in 2:length(t)){
     new_r <- (y[i] / y[i-1])^(1/x) - 1
-    if(abs(new_r) == Inf) new_r <- NA
+    if(abs(new_r) %in% c(Inf, NaN)) new_r <- NA
     r <- c(r, new_r)
   }
   return(r)
