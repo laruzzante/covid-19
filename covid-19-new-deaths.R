@@ -6,16 +6,16 @@
 # (y/a)^(1/x) - 1 = r
 
 
-## March: New confirmed covid-19 cases per day. Data taken from daily situation reports from the WHO website.
+## March: New confirmed covid-19 deaths per day. Data taken from daily situation reports from the WHO website.
 days <- c('01.03','02.03','03.03','04.03','05.03','06.03','07.03',
-         '08.03','09.03','10.03','11.03','12.03','13.03','14.03',
-         '15.03')
-it <- c(240,561,347,466,587,769,778,1247,1492,1797,977,2313,2651,2547,3497)
-es <- c(13,0,69,37,47,59,117,56,159,435,615,501,825,1266,1522)
-ch <- c(8,6,6,7,20,30,123,55,68,0,159,154,213,267,234)
-fr <- c(43,0,91,21,73,138,193,93,410,286,372,495,591,780,829)
-de <- c(0,72,28,39,66,272,105,156,317,27,157,271,802,693,733)
-uk <- c(3,13,3,12,20,29,49,43,67,46,50,87,134,208,342)
+          '08.03','09.03','10.03','11.03','12.03','13.03','14.03',
+          '15.03')
+it <- c(8,6,17,28,27,41,49,37,132,97,168,196,189,252,173)
+es <- c(0,0,0,0,1,2,2,0,5,18,8,12,36,36,16)
+ch <- c(0,0,0,0,0,1,0,1,0,0,1,1,2,0,5)
+fr <- c(0,0,1,1,0,2,3,1,9,11,3,15,13,18,12)
+de <- c(0,0,0,0,0,0,0,0,0,2,0,1,3,0,2)
+uk <- c(0,0,0,0,0,0,1,1,0,1,3,0,2,2,11)
 all_countries <- list(it,es,ch,fr,de,uk)
 
 
@@ -24,7 +24,7 @@ compute_r <- function(y, t, x){
   r <- c()
   for(i in 2:length(t)){
     new_r <- (y[i] / y[i-1])^(1/x) - 1
-    if(abs(new_r) == Inf) new_r <- NA
+    if(abs(new_r) %in% c(Inf, NaN)) new_r <- NA
     r <- c(r, new_r)
   }
   return(r)
@@ -47,9 +47,9 @@ pchs <- 1:length(all_countries_names)
 par(mfrow=c(1,2))
 
 # New cases per day
-plot(days, unlist(all_countries[1]), main='New cases per day', type='o',
+plot(days, unlist(all_countries[1]), main='New deaths per day', type='o',
      ylim=c(0,max(unlist(all_countries),na.rm=T)),
-     xaxt="n", col=colors[1], pch=pchs[1], ylab='new cases', xlab='day')
+     xaxt="n", col=colors[1], pch=pchs[1], ylab='new deaths', xlab='day')
 axis(1, at=days, labels=T)
 for(i in 2:length(all_countries)){
   lines(days, unlist(all_countries[i]), type='o', col=colors[i], pch=pchs[i])
