@@ -1,4 +1,4 @@
-BASE_DIR <- "/home/romain/programming/covid-19/"
+BASE_DIR <- "~/covid-19/"
 setwd(BASE_DIR)
 
 source("data.R")
