@@ -61,7 +61,8 @@ draw_cases <- function(data, metric = "confirmed", logtrans = FALSE, fit_line = 
     g <- ggplot(data, aes(x = Date, y = New, color = Country, fill = Country))
   } else g <- ggplot(data, aes(x = Date, y = Cases, color = Country, fill = Country))
     
-  g <- g + geom_point(size = 1) +
+  g <- g + geom_point(aes(shape=Country), size = 1) +
+      scale_shape_manual(values=1:nlevels(as.factor(data$Country))) +
       theme_cowplot() +
       theme_set(theme_classic(base_size = 10))+
       theme(axis.title.x = element_blank(),

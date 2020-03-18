@@ -5,7 +5,7 @@ data <- get_data()
 
 countries <- c("Italy", "Spain", "Switzerland", "France",
                "Germany", "United Kingdom", "Netherlands",
-               "Norway", "Sweden")
+               "Norway", "Sweden", "South Africa")
 
 # Plot data for a single country
 # plot_new_cases(data, countries = "Switzerland", metric = "confirmed")
