@@ -58,3 +58,33 @@ get_country_data <- function(data, country, metric = "confirmed", mainland = TRU
     return(data)
 
 }
+
+
+# Get new cases data for a single or a list of countries
+get_country_data_new_cases <- function(data, country, metric = "confirmed", mainland = TRUE) {
+  
+  data <- get_country_data(data, country, metric)
+  
+  if (!is.vector(country)) country <- c(country)
+  
+  data_new_cases <- c()
+  
+  for(country in countries){
+    
+    country_data_subset <- subset(data, Country==country)
+    rownames(country_data_subset) <- 1:nrow(country_data_subset)
+    country_data_subset$New <- country_data_subset$Cases
+    
+    for (i in 1:nrow(country_data_subset)) {
+      
+      if(i == 1) { country_data_subset[i, 'New'] <- country_data_subset[i, 'Cases']
+      } else {
+        country_data_subset[i, 'New'] <- country_data_subset[i, 'Cases'] - country_data_subset[i-1, 'Cases']
+      }
+    }
+    
+    data_new_cases <- rbind(data_new_cases, country_data_subset)
+  }
+  return(data_new_cases)
+  
+}

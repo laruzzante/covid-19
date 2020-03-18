@@ -6,9 +6,9 @@ source("plots.R")
 
 data <- get_data()
 
-Countries <- c("Italy", "Spain", "Switzerland", "France",
+countries <- c("Italy", "Spain", "Switzerland", "France",
                "Germany", "United Kingdom", "Netherlands",
-               "Norway")
+               "Norway", "Sweden")
 
 # Plot data for a single country
 # plot_new_cases(data, countries = "Switzerland", metric = "confirmed")
@@ -17,4 +17,5 @@ Countries <- c("Italy", "Spain", "Switzerland", "France",
 # plot_new_cases(data, countries = Countries, logtrans = FALSE, fit_line = FALSE)
 
 # Plot all metrics (cases, deaths, recovered) for multiple countries
-plot_all_metrics(data, countries)
+plot_all_metrics_cases(data, countries)
+plot_all_metrics_cases(data, countries, new_cases_only = TRUE)
