@@ -9,13 +9,13 @@
 ## March: New confirmed covid-19 deaths per day. Data taken from daily situation reports from the WHO website.
 days <- c('01.03','02.03','03.03','04.03','05.03','06.03','07.03',
           '08.03','09.03','10.03','11.03','12.03','13.03','14.03',
-          '15.03','16.03')
-it <- c(8,6,17,28,27,41,49,37,132,97,168,196,189,252,173,368)
-es <- c(0,0,0,0,1,2,2,0,5,18,8,12,36,36,16,152)
-ch <- c(0,0,0,0,0,1,0,1,0,0,1,1,2,0,5,2)
-fr <- c(0,0,1,1,0,2,3,1,9,11,3,15,13,18,12,36)
-de <- c(0,0,0,0,0,0,0,0,0,2,0,1,3,0,2,4)
-uk <- c(0,0,0,0,0,0,1,1,0,1,3,0,2,2,11,14)
+          '15.03','16.03','17.03')
+it <- c(8,6,17,28,27,41,49,37,132,97,168,196,189,252,173,368,349)
+es <- c(0,0,0,0,1,2,2,0,5,18,8,12,36,36,16,152,21)
+ch <- c(0,0,0,0,0,1,0,1,0,0,1,1,2,0,5,2,1)
+fr <- c(0,0,1,1,0,2,3,1,9,11,3,15,13,18,12,36,21)
+de <- c(0,0,0,0,0,0,0,0,0,2,0,1,3,0,2,4,1)
+uk <- c(0,0,0,0,0,0,1,1,0,1,3,0,2,2,11,14,20)
 all_countries <- list(it,es,ch,fr,de,uk)
 
 
@@ -44,7 +44,9 @@ all_countries_names <- c('it','es','ch','fr','de','uk')
 colors <- 1:length(all_countries_names)
 pchs <- 1:length(all_countries_names)
 
-par(mfrow=c(1,2))
+pdf('covid-19-new-deaths.pdf')
+
+par(mfrow=c(2,1))
 
 # New cases per day
 plot(days, unlist(all_countries[1]), main='New deaths per day', type='o',
@@ -65,3 +67,5 @@ for(i in 2:length(all_countries_r)){
   lines(days[-1], unlist(all_countries_r[i]), type='o', col=colors[i], pch=pchs[i])
 }
 legend('topleft',legend=all_countries_names,col=colors,pch=pchs)
+
+dev.off <- dev.off()
