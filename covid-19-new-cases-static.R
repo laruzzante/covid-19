@@ -61,7 +61,7 @@ all_countries_names <- c('it','es','ch','fr','de','uk')
 colors <- 1:length(all_countries_names)
 pchs <- 1:length(all_countries_names)
 
-pdf('new-cases-with-growth-rate-static.pdf', height = 10, paper = 'a4')
+pdf('figures/new-cases-with-growth-rate-static.pdf', height = 10, paper = 'a4')
 
 par(mfrow=c(4,1))
 

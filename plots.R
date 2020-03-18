@@ -26,8 +26,8 @@ plot_all_metrics_cases <- function(data, countries, new_cases_only = FALSE) {
   glist <- lapply(plot_list, ggplotGrob)
   multi.page <- ggpubr::ggarrange(plotlist = glist, nrow = 2, ncol = 1) 
   if(new_cases_only) {
-    ggpubr::ggexport(multi.page, filename = "covid-19-new-cases.pdf")
-  } else ggpubr::ggexport(multi.page, filename = "covid-19-total-cases.pdf")
+    ggpubr::ggexport(multi.page, filename = "figures/covid-19-new-cases.pdf")
+  } else ggpubr::ggexport(multi.page, filename = "figures/covid-19-total-cases.pdf")
   
   
 }

@@ -1,6 +1,3 @@
-BASE_DIR <- "~/covid-19/"
-setwd(BASE_DIR)
-
 source("data.R")
 source("plots.R")
 
