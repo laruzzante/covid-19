@@ -10,6 +10,7 @@ data <- get_data()
 plot_new_cases(data, countries = "Switzerland", metric = "confirmed")
 
 # Plot data for multiple countries
-plot_new_cases(data, countries = c("Italy", "Spain", "Switzerland", "France", "Germany", "United Kingdom"),
+plot_new_cases(data, countries = c("Italy", "Spain", "Switzerland", "France",
+                                   "Germany", "United Kingdom","Netherlands","Norway"),
                metric = "confirmed", fit_line = TRUE)
 
