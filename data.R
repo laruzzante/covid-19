@@ -5,9 +5,9 @@ library(readr)
 BASE_REPO_URL <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/"
 BASE_DATA_URL <- paste0(BASE_REPO_URL, "csse_covid_19_data/csse_covid_19_time_series/")
 
-CONFIRMED_REPORT_URL <- paste0(BASE_DATA_URL, "time_series_19-covid-Confirmed.csv")
-DEATH_REPORT_URL <- paste0(BASE_DATA_URL, "time_series_19-covid-Deaths.csv")
-RECOVERED_REPORT_URL <- paste0(BASE_DATA_URL, "time_series_19-covid-Recovered.csv")
+CONFIRMED_REPORT_URL <- paste0(BASE_DATA_URL, "time_series_covid19_confirmed_global.csv")
+DEATH_REPORT_URL <- paste0(BASE_DATA_URL, "time_series_covid19_deaths_global.csv")
+RECOVERED_REPORT_URL <- paste0(BASE_DATA_URL, "time_series_covid19_recovered_global.csv")
 
 
 # Get data from John Hopkiins' github repo
